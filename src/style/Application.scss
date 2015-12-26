@@ -1,0 +1,422 @@
+@import '../lib/elusive/css/elusive-icons.min.css';
+@import "./Common.scss";
+
+html {
+  font-family: 'Lato', sans-serif !important;
+  background-color: $backgroundColor;
+}
+
+body {
+  margin: 0;
+}
+
+h1, h2, h3, h4 {
+  text-transform: uppercase;
+  font-weight: 700;
+  color: $white;
+}
+
+h1 {
+  color: $white;
+  font-size: 52px;
+  letter-spacing: -3px;
+  margin-bottom: $gutter*10;
+  margin-top: 0;
+
+  span {
+    position: relative;
+    margin-left: $gutter;
+    top: -4px;
+  }
+}
+
+h2 {
+  letter-spacing: -1px;
+  font-size: 28px;
+}
+
+a {
+  text-decoration: none;
+}
+
+strong {
+  color: $color1;
+}
+
+.navbar {
+  margin: $gutter*5;
+  margin-bottom: $gutter*10;
+  display: flex;
+  justify-content: space-between;
+
+  & > * {
+    align-self: center;
+  }
+
+  ul {
+    display: inline-block;
+  }
+
+  li {
+    display: inline-block;
+  }
+}
+
+.logo {
+  display: inline-block;
+  font-size: 30px;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: -2px;
+  color: $white;
+
+  i {
+    top: -6px;
+    margin-right: 4px;
+    padding: 2px;
+    font-size: 20px;
+    position: relative;
+    border-bottom: 2px solid $color1;
+  }
+}
+
+.content {
+  margin: $gutter*5;
+  //background-image: linear-gradient(to top, #152022 0%, #455459 100%);
+}
+
+
+#menu {
+  padding: 0;
+
+  li {
+    margin-right: $gutter*2;
+  }
+
+  a:hover, a.active {
+    background-color: $color3;
+    color: $neutral;
+  }
+
+  a {
+    color: $white;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    font-weight: bold;
+    padding: $gutter/2;
+  }
+}
+
+#search-bar {
+  display: flex;
+  justify-content: space-between;
+
+  &.focused {
+    .typeahead input {
+      border-bottom: 2px solid $color1;
+    }
+
+    & > i {
+      color: $color2;
+    }
+  }
+
+  .party {
+    display: flex;
+
+    span {
+      align-self: center;
+    }
+  }
+
+  .icon {
+    max-width: $gutter*4;
+    min-width: $gutter*4;
+
+    span {
+      margin: 0 auto;
+    }
+  }
+
+  .typeahead {
+    position: relative;
+    display: inline-block;
+    align-self: center;
+
+    input {
+      background-color: transparent;
+      border: 0;
+      border-bottom: 2px solid $gray;
+      outline: 0;
+      color: $white;
+      line-height: 15px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+
+    li {
+      display: block;
+      line-height: 22px;
+
+      &.selected {
+        background-color: $color1;
+      }
+    }
+
+    > ul {
+      position: absolute;
+      top: 23px;
+      left: 0px;
+      width: $gutter*70;
+      padding: 0 $gutter 0 $gutter;
+      margin: 0;
+      background-color: $gray;
+      z-index: 10000;
+
+      a {
+        color: $color3;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+      }
+
+      .title {
+        color: $dark;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+
+      ul {
+        padding: $gutter 0;
+      }
+    }
+  }
+
+  & > i {
+    align-self: center;
+    font-size: 20px;
+    color: $gray;
+    margin: $gutter/2;
+  }
+
+  li {
+    float: none;
+  }
+}
+
+.party-separator {
+  text-align: center;
+  margin: $gutter*6 0 $gutter*12 + 50;
+
+  .separator {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    border-top: 2px dashed $gray;
+    height: 0px;
+  }
+
+  span {
+    top: -13px;
+    color: $color2;
+    padding: 4px;
+    position: relative;
+    background-color: $backgroundColor;
+  }
+}
+
+.parties-expose {
+  display: flex;
+  flex-wrap: wrap;
+
+  .collection-item {
+    width: $gutter*70;
+    margin-bottom: 46px;
+  }
+
+  .stats {
+    position: relative;
+    color: $gray;
+    margin: 0 0 $gutter 58px;
+    top: -$gutter;
+  }
+
+  .party-logo {
+    margin-right: $gutter;
+  }
+
+  strong {
+    font-weight: 500;
+    color: $color1;
+  }
+
+  h2 {
+    display: inline-block;
+    position: relative;
+    top: -14px;
+    margin-bottom: 0;
+    //border-bottom: 2px solid transparent;
+    line-height: 28px;
+  }
+
+  a:hover h2 {
+    //border-bottom: 2px dashed $white;
+    color: $color2;
+  }
+
+}
+
+.qa-table {
+  display: table;
+  border-collapse: collapse;
+
+  .el-star, .el-star-empty {
+    font-size: 20px;
+    color: $color3;
+  }
+
+  .el-star-empty {
+    color: rgba($color3, .0);
+  }
+
+  .row:hover .el-star-empty {
+    color: rgba($color3, .6);
+  }
+
+  .row.header {
+    display: block;
+    position: relative;
+    background-color: $white;
+    z-index: 200;
+  }
+
+  .header-background {
+    position: absolute;
+    width: 100%;
+    height: 48px;
+    background-color: $white;
+    left: 0;
+    z-index: 100;
+  }
+
+  &.fixed-header {
+    position: fixed;
+    z-index: 10000;
+    top: 0px;
+    background-color: white;
+    margin-right: $gutter*5;
+
+    .header-background {
+      box-shadow: 0 5px 7px rgba($dark, 0.5);
+      position: fixed;
+    }
+
+    .row.header {
+      padding-right: $gutter*5;
+    }
+  }
+
+  .row {
+    display: table-row;
+    height: 48px;
+
+    &.header .cell {
+      text-align: center;
+      background-color: transparent;
+      border: 1px solid lighten($neutral, 40%);
+      border-bottom: none;
+      border-top: none;
+
+      &.empty {
+        border: none;
+      }
+
+      &.header {
+        border-left: none;
+      }
+    }
+
+    & > * {
+      display: table-cell;
+      width: 48px;
+      height: 48px;
+      text-align: center;
+      vertical-align: middle;
+      border: 1px solid $neutral;
+      background-color: $bright;
+
+      &.header {
+        color: $white;
+        text-align: left;
+        width: 360px;
+        border-left: none;
+        padding: $gutter $gutter $gutter $gutter*2;
+      }
+
+      &:not(.header).cell {
+        text-transform: uppercase;
+        font-size: 12px;
+        color: $dark;
+      }
+
+      &.yes {
+        background-color: $colorYes;
+      }
+
+      &.no {
+        background-color: $colorNo;
+      }
+    }
+  }
+}
+
+.collection-item {
+  .party-logo-small {
+    vertical-align: middle;
+    margin-right: 10px;
+  }
+
+  & > span {
+    vertical-align: middle;
+  }
+}
+
+.party-logo, .party-logo-small {
+  background: url('../assets/partisk-sprite.png') no-repeat;
+}
+
+.party-logo {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+}
+
+.party-logo-small {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+}
+
+.party-logo-1 { background-position: -100px -50px; }
+.party-logo-2 { background-position: 0 -50px; }
+.party-logo-3 { background-position: -50px 0; }
+.party-logo-4 { background-position: -50px -50px; }
+.party-logo-5 { background-position: -0px 0; }
+.party-logo-6 { background-position: -100px 0; }
+.party-logo-7 { background-position: -0px -100px; }
+.party-logo-8 { background-position: -150px -50px; }
+.party-logo-9 { background-position: -150px -0px; }
+.party-logo-10 { background-position: -50px -100px; }
+
+.party-logo-small-1 { background-position: -150px -175px; }
+.party-logo-small-2 { background-position: -100px -175px; }
+.party-logo-small-3 { background-position: -25px -175px; }
+.party-logo-small-4 { background-position: -125px -175px; }
+.party-logo-small-5 { background-position: -0px -175px; }
+.party-logo-small-6 { background-position: -50px -175px; }
+.party-logo-small-7 { background-position: -200px -175px; }
+.party-logo-small-8 { background-position: -175px -175px; }
+.party-logo-small-9 { background-position: -75px -175px; }
+.party-logo-small-10 { background-position: -225px -175px; }

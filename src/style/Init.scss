@@ -1,0 +1,183 @@
+@import "./Common.scss";
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-family: 'Lato', sans-serif !important;
+}
+
+#loading-page {
+  -webkit-backface-visibility: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: scale(1.0) translate3d(0,0,0);
+  z-index: 10000;
+  top: 0;
+  left: 0;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: $dark;
+}
+
+.loader, .sub-page-loader {
+  z-index: 10000;
+  top: 0;
+  left: 0;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: blue;
+  background-image: url('../assets/grid-loader.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.loader-enter {
+  opacity: 0.001;
+  transition: opacity $loadingTime ease-in;
+  transform: scale(1.0) translate3d(0,0,0);
+}
+
+.loader-appear {
+  opacity: 0.001;
+  transition: opacity $loadingTime ease-in;
+  transform: scale(1.0) translate3d(0,0,0);
+}
+
+.loader-leave {
+  opacity: 0.999;
+  transition: opacity $loadingTime ease-out;
+  transform: scale(1.0) translate3d(0,0,0);
+}
+
+.loader-enter.loader-enter-active {
+  opacity: 0.999;
+  transform: scale(1.0) translate3d(0,0,0);
+}
+
+.loader-leave.loader-leave-active {
+  opacity: 0.001;
+  transform: scale(1.0) translate3d(0,0,0);
+}
+
+#loading-page {
+  display: flex;
+  position: fixed;
+  align-items: center;
+  justify-content: center;
+}
+
+// Credits: http://projects.lukehaas.me/css-loaders/
+
+#spinner {
+  position: relative;
+  width: 225px;
+  height: 225px;
+
+  .text {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    top: 94px;
+    color: $white;
+    letter-spacing: -1px;
+    font-weight: bold;
+    font-size: 25px;
+  }
+}
+
+.spinner-inner {
+  position: absolute;
+  font-size: 10px;
+  text-indent: -9999em;
+  border-top: 1.1em solid rgba(0, 0, 0, 0);
+  border-right: 1.1em solid rgba($spinnerInner, 1);
+  border-bottom: 1.1em solid rgba($spinnerInner, 1);
+  border-left: 1.1em solid rgba($spinnerInner, 1);
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation: load8 1.2s infinite linear;
+  animation: load8 1.2s infinite linear;
+}
+.spinner-inner,
+.spinner-inner:after {
+  border-radius: 50%;
+  width: 80%;
+  height: 80%;
+  top: 22px;
+  left: 22px;
+}
+
+.spinner-outer {
+  position: absolute;
+  font-size: 10px;
+  text-indent: -9999em;
+  border-top: 1.1em solid rgba(0, 255, 255, 0);
+  border-right: 1.1em solid rgba($spinnerOuter, 1);
+  border-bottom: 1.1em solid rgba($spinnerOuter, 1);
+  border-left: 1.1em solid rgba($spinnerOuter, 1);
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation: load8 0.8s infinite linear reverse;
+  animation: load8 0.8s infinite linear reverse;
+}
+.spinner-outer,
+.spinner-outer:after {
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+}
+
+@-webkit-keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.sub-page-loader-enter {
+  opacity: 0.01;
+  transition: opacity .5s ease-in;
+}
+
+.sub-page-loader-appear {
+  opacity: 0.01;
+  transition: opacity .5s ease-in;
+}
+
+.sub-page-loader-leave {
+  opacity: 0.999;
+  transition: opacity .5s ease-in;
+}
+
+.sub-page-loader-enter.sub-page-loader-enter-active {
+  opacity: 0.999;
+}
+
+.sub-page-loader-leave.sub-page-loader-leave-active {
+  opacity: 0.01;
+}
