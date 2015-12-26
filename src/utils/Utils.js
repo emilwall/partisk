@@ -15,6 +15,12 @@ const Utils = {
       method: "get",
       url: url
     });
+  },
+
+  searchItem: function (option, value) {
+    let text = option.name || option.title;
+    // TODO: SLOW
+    return text.toLowerCase().indexOf(value.toLowerCase()) > -1;
   }
 };
 
